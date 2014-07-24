@@ -1,4 +1,4 @@
 autotestplatform
 ================
 
-自动化测试平台
+python web开发实践
