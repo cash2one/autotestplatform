@@ -11,4 +11,6 @@ autotest_platform
 
 ### 使用:
 * 部分界面截图：    
-![image](screenshot/mail.png)     
+![image](screenshot/001.jpg)     
+![image](screenshot/002.jpg)     
+![image](screenshot/003.jpg)     
