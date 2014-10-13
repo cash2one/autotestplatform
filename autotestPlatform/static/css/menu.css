@@ -1,0 +1,193 @@
+.clear:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clear nav{
+	display:inline-block;
+	border:1px solid #505255;
+	border-bottom: 1px solid #282C2F;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin:50px;
+	-webkit-box-shadow:1px 1px 3px #292929;
+    -moz-box-shadow:1px 1px 3px #292929;
+}
+.clear li{
+	list-style:none;
+	float:left;
+	border-right: 1px solid #2E3235;
+	position: relative;
+	/*background: -moz-linear-gradient(top, #fff, #555D5F 2% ,#555D5F  50%,#3E4245 100%);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), color-stop(2%, #555D5F), color-stop(50%, #555D5F),to(#3E4245));*/
+	#background:#555D5F;
+	background:#17263B;
+}
+.clear li:hover{
+	/*background: -moz-linear-gradient(top, #fff, #3E4245 2% ,#555D5F  80%,#555D5F 100%);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), color-stop(2%, #3E4245), color-stop(80%, #3E4245),to(#555D5F));*/
+	#background:#3E4245;
+	#background:#999E9F;
+	background:#5E7692;
+	-moz-transition: background 1s ease-out;
+	-webkit-transition: background 1s ease-out;
+}
+.clear li a{
+	display:block;
+	height:60px;
+	line-height:60px;
+	padding:0 30px;
+	font-size:16px;
+	font-weight:bold;
+	color:#fff;
+	text-shadow: 0px -1px 0px #000;
+	text-decoration:none;
+	white-space:nowrap;
+	#border-left: 1px solid #999E9F;
+    #border-top: 1px solid #999E9F;
+	-moz-border-top-left-radius: 2px;
+	-webkit-border-top-left-radius: 2px;
+	
+	z-index:100;
+}
+.clear li > a{
+	position:relative;
+}
+.clear li.first a{
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+}
+.clear li.last{
+	border-right: 0 none;
+}
+
+
+.clear dl{
+	position:absolute;
+	display:block;
+	top:60px;
+	left: -25px;
+	
+	#width:165px;
+	width:225px;
+	
+	background:#222222;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	-webkit-box-shadow:1px 1px 3px #292929;
+    -moz-box-shadow:1px 1px 3px #292929;
+	
+	z-index:10;
+            
+}
+.clear li:hover dl{
+	top:70px;
+	display:block;
+	#width:145px;
+	width:225px;
+	#padding:10px;
+	padding:0 0 0 0;
+}
+.clear dl a{
+	background:transparent;
+	border:0 none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-transition: background 0.5s ease-out;
+	-webkit-transition: background 0.5s ease-out;
+	
+	z-index:50;
+	
+	font-weight:normal;
+	
+	
+	padding:0 0 0 0;
+}
+.clear dl a:hover{
+	color:#FFF;
+	#background:#999E9F;
+	background:#5E7692;
+	-moz-transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+	-webkit-transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.clear dd{
+	margin-top:-60px;
+	opacity:0;
+	#width:145px;
+	width:225px;
+	-webkit-transition-property:all;
+	/*-webkit-transition-timing-function: cubic-bezier(5,0,5,0);*/
+	-moz-transition-property: all;
+	/*-moz-transition-timing-function: cubic-bezier(5,0,5,0);*/
+	/*-webkit-transition-delay:5s;
+	-moz-transition-delay:5s;*/
+	
+	padding:0 0 0 1px;
+}
+
+.clear dd img{
+	vertical-align: middle;
+}
+
+.clear li:hover dd{
+	margin-top:0;
+	opacity:1;
+}
+.clear li dd:nth-child(1){
+	-webkit-transition-duration: 0.1s;
+	-moz-transition-duration: 0.1s;
+}
+.clear li dd:nth-child(2){
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+}
+.clear li dd:nth-child(3){
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+}
+.clear li dd:nth-child(4){
+	-webkit-transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s;
+}
+.clear dt{
+	display:none;
+	margin-top:-25px;
+	padding-top:15px;
+	height:10px;
+}
+.clear li:hover dt{
+	display:block;
+}
+.clear .Darrow{
+	float:right;
+	margin:38px 10px 0 0;
+	border-width:5px;
+	border-color:#FFF transparent transparent transparent;
+	border-style:solid;
+	width:0;
+	height:0;
+	line-height:0;
+	overflow:hidden;
+	
+	cursor:pointer;
+	
+	text-shadow: 0px -1px 0px #000;
+	
+	-webkit-box-shadow:0px -1px 0px #000;
+    -moz-box-shadow:0px -1px 0px #000;
+}
+.clear .arrow{
+	margin:0 auto;
+	margin-top:-5px;
+	display:block;
+	width:10px;
+	height:10px;
+	background:#222222;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+}

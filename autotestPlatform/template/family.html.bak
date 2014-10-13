@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>主页-LBS数据卫士</title>
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/common.js" type="text/javascript"></script>
+<script type="text/javascript" src="/static/js/model/slider/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="/static/js/model/highcharts/highcharts.js"></script>
+<script src="/static/js/chartdisplay.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/static/js/model/slider/themes/default/default.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/js/model/slider/nivo-slider.css" type="text/css" media="screen" />
+<link href="/static/css/list.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+h2{
+	font-weight:bold;
+}
+
+h3{
+	font-weight:bold;
+}
+
+.sec h3{
+	text-align:center;
+}
+
+.plist{
+	padding:30px 0;
+	width:1000px;
+	overflow:hidden;
+	margin:auto;
+}
+.plist .sec{
+	width:200px;
+	padding:0 50px 0 0;
+	overflow:hidden;
+	float:left;
+}
+.plist .sec_last{
+	padding:0;
+}
+.plist .sec h2{
+	font-size:20px;
+	padding:0 0 8px 0;
+}
+.plist .sec h2 a{
+	color:#5f5f5f;
+	text-decoration:none;
+}
+.plist .sec h2 a:hover{
+	text-decoration:underline;
+}
+.plist .sec p{
+	color:#666;
+	font-size:14px;
+}
+.home_foot{
+	padding:20px 0 0 0;
+	width:100%;
+	overflow:hidden;
+	height:80px;
+	text-align:center;
+	color:#999;
+	background:#f5f5f5;
+}
+.ilist{
+	width:1000px;
+	margin:auto;
+	overflow:hidden;
+	padding:20px 0;
+	border-top:1px dashed #CCC;
+}
+.ilist .sec{
+	float:left;
+	width:250px;
+}
+.ilist .sec .icon{
+	float:left;
+	width:48px;
+	height:48px;
+}
+.ilist .sec .list1{
+	background:url(/static/images/quality.png) no-repeat;
+}
+.ilist .sec .list2{
+	background:url(/static/images/ass.png) no-repeat;
+}
+.ilist .sec .list3{
+	background:url(/static/images/robot.png) no-repeat;
+}
+.ilist .sec .list4{
+	background:url(/static/images/index.png) no-repeat;
+}
+.ilist .sec .title{
+	float:left;
+	line-height:48px;
+	padding-left:10px;
+	font-size:12px;
+	color:#7c7c7c;
+}
+.ilist .sec .title a{
+	color:#7c7c7c;
+	text-decoration:none;
+}
+.ilist .sec .title a:hover{
+	text-decoration:underline;
+}
+.permissioninfo_entrance{
+    position: fixed;
+    right: 0;
+    bottom: 100px;
+    text-align: center;
+    z-index: 999;
+}
+.permissioninfo_entrance a{
+    display: block;
+    width: 14px;
+    padding: 22px 10px 5px 10px;
+    border: 1px solid #CCC;
+    text-align: center;
+    background: #549002;
+    color: #000;
+    text-decoration: none;
+    line-height: 14px;
+    background:#e9eef2 url(/pharos/resource/images/bg_entranceapply.png) 8px 3px no-repeat;
+}
+.permissioninfo_list{
+    width: 600px;
+    border: 3px solid #757374;
+    background: #FFF;
+    position: fixed;
+    top: 100px;
+    left: 200px;
+    z-index: 999;
+    display: none;
+    padding: 15px;
+}
+.permissioninfo_list h2{
+    font-size: 14px;
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px solid #CCC;
+}
+.permissioninfo_list a{
+    position: absolute;
+    right:10px;
+    top: 10px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: normal;
+}
+table.permission{
+    font: 12px "微软雅黑";
+    border-collapse: collapse;
+}
+table.permission th{
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #CCC;
+}
+table.permission td{
+    padding: 8px 10px;
+    border-bottom: 1px solid #CCC;
+}
+.pmtips{
+    color: #000;
+    padding: 8px 10px;
+    border-bottom: 1px solid #CCC;
+    font: 12px "微软雅黑";
+}
+
+#nav ul{
+	display:none;
+}
+
+ </style>
+ 
+ <script type="text/javascript">
+$(function(){
+  /*$('#nav li').mousemove(function(){
+  $(this).find('ul').show();//you can give it a speed
+  });
+  $('#nav li').mouseleave(function(){
+  $(this).find('ul').hide();
+  });*/
+    $('#nav li').hover(function(){
+        if($(this).has('ul')){
+            //$(this).children('a').first().addClass('sub_on');
+            $(this).find('ul').show();
+        }
+    },function(){
+        //$(this).children('a').first().removeClass('sub_on');
+        $(this).find('ul').hide();
+    });
+})
+</script>
+
+</head>
+<body>
+<!--header-->
+<div class="header">
+    <div class="h_logo"><a href="#" title="LBS数据卫士"><img src="/static/images/qaup_logo.png" alt=""/></a></div>
+    <div class="h-menu wrap">
+        <ul class="h-nav" id='nav'>
+            <li class="active"><a href="#">主页</a><span></span></li>
+            <li><a href="#">基础数据</a><span></span></li>
+            <li><a href="#">算法评估</a><span></span></li>
+			<li>
+                <div class="btn-dropdown drop-heigth">
+                    <a class="btn dropdown-nav">数据测试<i class="select-open"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="/autotestPlatform/">服务测试</a></li>
+                        <li><a href="#">XX类型测试</a></li>
+                    </ul>
+                </div>
+            </li>
+			<li><a href="#">数据指标</a><span></span></li>
+        </ul>
+    </div>
+    <div class="h-extra"> 
+        <div class="btn-dropdown drop-heigth">
+			<span><label id='id_user_name'>{{usrname}}</label>，欢迎您</span>&nbsp;&nbsp;&nbsp;<span class='link'><a href="javascript:alert('系统实现自动登录');" style='color:white'><i class="icon16 icon16-setting"></i>个人中心</a></span>&nbsp;&nbsp;&nbsp;<span class='link' style='color:white'><a href="/autotestPlatform/logout/" style='color:white'><i class="icon16 icon16-power"></i>退出</a></span>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!--content-->
+<div id="wrapper" style="width: 100%;height: 400px;overflow: hidden;text-align: center;position: relative;">
+	<div class="slider-wrapper theme-default">
+		<div id="slider" class="nivoSlider">
+			<a href="#"><img src="/static/images/basedata.png" data-thumb="/static/images/dependency.png" alt="" data-transition="slideInLeft" /></a>
+			<a href="#"><img src="/static/images/assessment.png" data-thumb="/static/images/find.png" alt="" /></a>
+			<a href="#"><img src="/static/images/autotest.png" data-thumb="/static/images/appear.png" alt="" /></a>
+			<a href="#"><img src="/static/images/dataindex.png" data-thumb="/static/images/dataindex.png" alt="" /></a>
+			<a href="#"><img src="/static/images/experience.png" data-thumb="/static/images/find.png" alt="" /></a>
+		</div>
+	</div>
+</div>
+
+<div class="plist">
+  <div class="sec">
+    <h2><a href="#">DA数据质量服务平台</a></h2>
+	<h3>副标题，描述一下</h3>
+    <p>描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息</p>
+  </div>
+  <div class="sec">
+    <h2><a href="#">UPPS算法评估平台</a></h2>
+	<h3>副标题，描述一下</h3>
+    <p>描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息</p>
+  </div>
+  <div class="sec">
+    <h2><a href="/autotestPlatform/">自助测试服务平台</a></h2>
+	<h3>UPPS测试服务化</h3>
+    <p>一键启动，全流程自动化；支持功能性能自动化测试；模块覆盖齐全；输出展示完备；支持度量中心。UPPS定制化的自动化测试平台！</p>
+  </div>
+  <div class="sec sec_last">
+    <h2><a href="#">LBS数据指标门户</a></h2>
+	<h3>副标题，描述一下</h3>
+    <p>描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息描述信息</p>
+  </div>
+</div>
+
+<div class="ilist">
+    <div class="sec" style='padding:0 0 0 0;margin:0 0 0 0'>
+        <div class="icon list1"></div>
+        <div class="title"><h3>数据质量保障</h3></div>
+    </div>
+    <div class="sec">
+        <div class="icon list2"></div>
+        <div class="title"><h3>算法评估</h3></div>
+    </div>
+    <div class="sec">
+        <div class="icon list3"></div>
+        <div class="title"><h3>服务测试自动化</h3></div>
+    </div>
+    <div class="sec">
+        <div class="icon list4"></div>
+        <div class="title"><h3>数据指标门户</h3></div>
+    </div>
+</div>
+<div class="home_foot">
+<p>Copyright ©2014 Baidu. All Rights Reserved.
+</p>
+<p>
+                  百度 LBS 测试版权所有
+</p>
+</div>
+
+<!--<div class="layout-footer" style='position:relative'>&copy; 2013-2014 Baidu.com 百度公司版权所有</div>-->
+<script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+</script>
+
+</body>
+</html>

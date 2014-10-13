@@ -1,0 +1,564 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页-自测服务平台</title>
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/common.js" type="text/javascript"></script>
+<script type="text/javascript" src="/static/js/model/slider/jquery.nivo.slider.js"></script>
+<link rel="stylesheet" href="/static/js/model/slider/themes/default/default.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/static/js/model/slider/nivo-slider.css" type="text/css" media="screen" />
+<link rel="StyleSheet" href="/static/js/model/xdialog/xDialog.css" type="text/css" />
+<script type="text/javascript" src="/static/js/model/xdialog/xDialog.js"></script>
+
+<script type="text/javascript">
+    /*$(window).load(function() {
+        $('#slider').nivoSlider();
+    });*/
+	$(document).ready(function(){
+		$('#slider').nivoSlider();
+	});
+</script>
+
+
+<!--<script type="text/javascript" src="/static/js/model/highcharts/highcharts.js"></script>-->
+<script type="text/javascript" src="/static/js/model/highstock/js/highstock.js"></script>
+<script type="text/javascript" src="/static/js/model/highstock/js/modules/exporting.js"></script>
+<script src="/static/js/chartdisplay.js" type="text/javascript"></script>
+
+<link href="/static/css/list.css" rel="stylesheet" type="text/css" />
+<link href="/static/css/menu.css" rel="stylesheet" type="text/css" />
+<!--<script type="text/javascript" src="/static/js/dtreeselect.js"></script>-->
+
+</head>
+<body>
+<!--header-->
+<div class="header">
+    <div class="h_logo"><a href="#" title="自测服务平台"><img src="/static/images/qaup_logo.png" alt=""/></a></div>
+    <!--<div class="h-menu">
+        <ul class="h-nav">
+            <li class="active"><a href="/autotestPlatform/">首页</a><span></span></li>
+            <li><a href="/autotestPlatform/mainframework/">服务管理</a><span></span></li>
+            <li><a href="#">配置管理</a><span></span></li>
+			<li><a href="#">监控中心</a><span></span></li>
+			<li><a href="#">账号管理</a><span></span></li>
+			<li>
+                <div class="btn-dropdown drop-heigth">
+                    <a class="btn dropdown-nav">工具下载<i class="select-open"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="/autotestPlatform/">HTTP性能测试工具</a></li>
+                        <li><a href="#">redis自定义接口性能测试工具</a></li>
+						<li><a href="#">PBRPC接口性能测试工具</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>-->
+	<div class="h-menu">
+	<ul class="clear">
+    	<li class="first"><a href="/autotestPlatform/">首页</a></li>
+		<li><a href="/autotestPlatform/mainframework/">服务管理</a></li>
+		<li><a href="#">配置管理</a></li>
+		<li><a href="#">监控中心</a></li>
+		<li><a href="#">账号管理</a></li>
+        <li>
+        	<span class="Darrow"></span>
+            <a href="#">工具下载</a>
+        	<dl>
+            	<dt><span class="arrow"></span></dt>
+                <dd><a href="https://github.com/JunneYang/easyBenchmarkTesttool"><img src='/static/images/github.jpg'>&nbsp;&nbsp;HTTP性能测试</a></dd>
+                <dd><a href="https://github.com/JunneYang/redisbenchmarkExtension"><img src='/static/images/github.jpg'>&nbsp;&nbsp;redis自定义接口性能测试</a></dd>
+				<dd><a href="#"><img src='/static/images/github.jpg'>&nbsp;&nbsp;PBRPC接口性能测试</a></dd>
+            </dl>
+        </li>
+    </ul>
+	</div>
+	
+    <div class="h-extra"> 
+        <div class="btn-dropdown drop-heigth">
+            <!--<a class="btn dropdown-extra"><span class="select-txt">admin</span> <span class="select-open"></span></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+				<li><a href="#">个人中心</a></li>
+                <li><a href="#">退出</a></li>
+            </ul>-->
+			<!--<div class="h_nav"> <span class="hi"><img src="/static/images/head_default.jpg" alt="id"/> 欢迎你！</span><span class="link"><a href="#"><i class="icon16 icon16-setting"></i> 设置</a><a href="#"><i class="icon16 icon16-power"></i> 注销</a></span> </div>-->
+			<!--<span><label id='id_user_name'>{{usrname}}</label>，欢迎您</span>&nbsp;&nbsp;&nbsp;<span class='link'><a href="javascript:alert('系统实现自动登录');" style='color:white'><i class="icon16 icon16-setting"></i>个人中心</a></span>&nbsp;&nbsp;&nbsp;<span class='link' style='color:white'><a href="/autotestPlatform/logout/" style='color:white'><i class="icon16 icon16-power"></i>退出</a></span>-->
+			
+			<span><label id='id_user_name'>{{usrname}}</label>，欢迎您</span>&nbsp;&nbsp;&nbsp;<span class='link'><a href="javascript:user_info();" style='color:white'><i class="icon16 icon16-setting"></i>个人中心</a></span>&nbsp;&nbsp;&nbsp;<span class='link' style='color:white'><a href="/logout/" style='color:white'><i class="icon16 icon16-power"></i>退出</a></span>&nbsp;&nbsp;&nbsp;<span><a href="/" style='color:white'><i class="icon16 icon16-home"></i>回到主页</a></span>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!--content-->
+<div class="layout-content">
+    <div class="left-content">
+        <div id="wrapper">
+            <div class="slider-wrapper theme-default">
+                <div id="slider" class="nivoSlider">
+					<a href="#"><img src="/static/images/dependency.png" data-thumb="/static/images/dependency.png" alt="" data-transition="slideInLeft" /></a>
+                    <a href="#"><img src="/static/images/find.png" data-thumb="/static/images/find.png" alt="" /></a>
+					<a href="#"><img src="/static/images/appear.png" data-thumb="/static/images/appear.png" alt="" /></a>
+					<a href="#"><img src="/static/images/best.png" data-thumb="/static/images/find.png" alt="" /></a>
+                </div>
+            </div>
+
+        </div>
+		<div style='backgroundColor:#EEE;'>
+		<div class="page-title"> <b>平台使用数据统计</b> </div><br/>
+		<ul>
+                <!--<li id="b1" >多少人使用</li>-->
+				<div id='id_chart_test'>
+				</div>
+				<br/>
+				
+				
+                <!--<li id="b2" >使用多少次</li>-->
+				<div id='id_chart_test_usage'>
+				</div>
+				<br/>
+				
+				 
+				<!--<li id="b2" >成功率</li>-->
+                <div class="clear"></div>
+        </ul>
+		<div class="page-title"> <b>测试结果数据统计</b> </div><br/>
+		<ul>
+                <!--<li id="b2" >按照项目统计</li>
+				<li id="b2" >按照测试类型统计</li>-->
+				<div id='id_chart_test_result'>
+				</div>
+				<br/>
+				
+                <div class="clear"></div>
+        </ul>
+		</div>
+		
+		
+		
+		<ul>
+                <!--<li id="b2" >按照项目统计</li>
+				<li id="b2" >按照测试类型统计</li>-->
+				<div id='id_test'>
+				</div>
+                <div class="clear"></div>
+        </ul>
+        <!--<div class="page-title"> 我管理的系统 <a class="btn btn-primary fr">注册新系统</a></div>
+        <div class="panel mt10">
+            <div>
+                <table class="table table_bordered">
+                    <thead>
+                        <tr>
+                            <th width="30"><input type="checkbox" id="selAll" class="check" /></th>
+                            <th width="60">代码</th>
+                            <th width="90">简称</th>
+                            <th>店名</th>
+                            <th width="90" >所属省份</th>
+                            <th width="120">创建时间</th>
+                            <th width="120" style="padding-left:15px;">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"  class="check"/></td>
+                            <td>ZT01</td>
+                            <td>北京城市展厅</td>
+                            <td class="title"><a href="#">北京美好城市推广展示大厅</a></td>
+                            <td>北京市</td>
+                            <td>2013-07-02 11:41</td>
+                            <td class="i-operate"><a href="#" title="查看">查看</a><a href="#" title="编辑">编辑</a><a href="#" title="删除">删除</a></td>
+                        </tr>
+                        <tr class="active">
+                            <td><input type="checkbox"  class="check" checked/></td>
+                            <td>ZT01</td>
+                            <td>北京城市展厅</td>
+                            <td class="title"><a href="#">北京美好城市推广展示大厅</a></td>
+                            <td>北京市</td>
+                            <td>2013-07-02 11:41</td>
+                            <td class="i-operate"><a href="#" title="查看">查看</a><a href="#" title="编辑">编辑</a><a href="#" title="删除">删除</a></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"  class="check"/></td>
+                            <td>ZT01</td>
+                            <td>北京城市展厅</td>
+                            <td class="title"><a href="#">北京美好城市推广展示大厅</a></td>
+                            <td>北京市</td>
+                            <td>2013-07-02 11:41</td>
+                            <td class="i-operate"><a href="#" title="查看">查看</a><a href="#" title="编辑">编辑</a><a href="#" title="删除">删除</a></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"  class="check"/></td>
+                            <td>ZT01</td>
+                            <td>北京城市展厅</td>
+                            <td class="title"><a href="#">北京美好城市推广展示大厅</a></td>
+                            <td>北京市</td>
+                            <td>2013-07-02 11:41</td>
+                            <td class="i-operate"><a href="#" title="查看">查看</a><a href="#" title="编辑">编辑</a><a href="#" title="删除">删除</a></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="check"/></td>
+                            <td>ZT01</td>
+                            <td>北京城市展厅</td>
+                            <td class="title"><a href="#">北京美好城市推广展示大厅</a></td>
+                            <td>北京市</td>
+                            <td>2013-07-02 11:41</td>
+                            <td class="i-operate"><a href="#" title="查看">查看</a><a href="#" title="编辑">编辑</a><a href="#" title="删除">删除</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="list-page">
+            <div class="i-total">共有相关信息 <b>100</b> 条</div>
+            <div class="i-list"> <span><</span><span class="active">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">></a> </div>
+            <div class="clear"></div>
+        </div>
+        <div class="page-title mt20"> 异常警告 </div>
+        <div class="panel-tab mt10">
+            <ul>
+                <li class="active" id="a1" onclick="setTab('a',1,2)">上流异常</li>
+                <li id="a2" onclick="setTab('a',2,2)">下流异常</li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="panel-main mt10">
+            <div id="con_a_1" class="hover">
+                <table class="table table-bordered">
+                    <thead>  
+                        <tr>
+                            <th width="30">序号</th>
+                            <th width="60">异常服务</th>
+                            <th width="90">异常系统</th>
+                            <th>发生时间</th>
+                            <th width="90" >受影响系统</th>
+                            <th width="120">异常服务接口人</th>
+                            <th width="120">异常系统接口人</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>邮件服务</td>
+                            <td>icafe+</td>
+                            <td class="title">2013-07-02 11:41</td>
+                            <td>family</td>
+                            <td>张骏&nbsp;&nbsp;<i class="icon16 icon16-hi"></i>&nbsp;&nbsp;<i class="icon16 icon16-mail"></i></td>
+                            <td>夏娜</td>
+                        </tr>
+                        <tr class="active">
+                            <td>2</td>
+                            <td>邮件服务</td>
+                            <td>icafe+</td>
+                            <td class="title">2013-07-02 11:41</td>
+                            <td>family</td>
+                            <td>张骏&nbsp;&nbsp;<i class="icon16 icon16-hi"></i>&nbsp;&nbsp;<i class="icon16 icon16-mail"></i></td>
+                            <td>夏娜</td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+            <div id="con_a_2" style="display:none;">
+                <table class="table table-bordered">
+                    <thead>  
+                        <tr>
+                            <th width="30">序号</th>
+                            <th width="60">异常服务</th>
+                            <th width="90">异常系统</th>
+                            <th>发生时间</th>
+                            <th width="90" >受影响系统</th>
+                            <th width="120">异常服务接口人</th>
+                            <th width="120">异常系统接口人</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>存储服务</td>
+                            <td>icafe+</td>
+                            <td class="title">2013-07-02 11:41</td>
+                            <td>family</td>
+                            <td>张骏&nbsp;&nbsp;<i class="icon16 icon16-hi"></i>&nbsp;&nbsp;<i class="icon16 icon16-mail"></i></td>
+                            <td>夏娜</td>
+                        </tr>
+                        <tr class="active">
+                            <td>2</td>
+                            <td>存储服务</td>
+                            <td>icafe+</td>
+                            <td class="title">2013-07-02 11:41</td>
+                            <td>family</td>
+                            <td>张骏&nbsp;&nbsp;<i class="icon16 icon16-hi"></i>&nbsp;&nbsp;<i class="icon16 icon16-mail"></i></td>
+                            <td>夏娜</td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="page-title mt20"> 服务查询 </div>
+        <div class="panel panel-gray mt10 pd10x20">
+                <div class="btn-dropdown">
+                    <a class="btn btn-select dropdown-toggle">
+                        <span class="select-txt">请选择</span> 
+                        <span class="select-open" style="top:17px;"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">one action</a></li>
+                        <li><a href="#">Something else</a></li>
+                    </ul>
+                </div>
+            
+               <div class="page-search">
+                    <input type="text" class="input-noborder" placeholder="看看ELK有什么..." value="" size="30">
+                    <input type="button" >
+                </div>
+            
+                
+                
+        </div>
+        <div class="mt10 mb20">
+            <table class="table table-bordered">
+                <thead>  
+                    <tr>
+                        <th width="30">系统</th>
+                        <th width="60">代码</th>
+                        <th width="90">简称</th>
+                        <th>店名</th>
+                        <th width="90" >所属省份</th>
+                        <th width="120">创建时间</th>
+                        <th width="120" style="padding-left:15px;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>icafe</td>
+                        <td>ZT01</td>
+                        <td>北京城市展厅</td>
+                        <td class="title"><a href="#">北京美好城市推广展示大厅</a></td>
+                        <td>北京市</td>
+                        <td>2013-07-02 11:41</td>
+                        <td class="i-operate"><a href="#" title="查看">查看</a><a href="#" title="编辑">编辑</a><a href="#" title="删除">删除</a></td>
+                    </tr>
+                    <tr class="active">
+                        <td>icafe</td>
+                        <td>ZT01</td>
+                        <td>北京城市展厅</td>
+                        <td class="title"><a href="#">北京美好城市推广展示大厅</a></td>
+                        <td>北京市</td>
+                        <td>2013-07-02 11:41</td>
+                        <td class="i-operate"><a href="#" title="查看">查看</a><a href="#" title="编辑">编辑</a><a href="#" title="删除">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td>icafe</td>
+                        <td>ZT01</td>
+                        <td>北京城市展厅</td>
+                        <td class="title"><a href="#">北京美好城市推广展示大厅</a></td>
+                        <td>北京市</td>
+                        <td>2013-07-02 11:41</td>
+                        <td class="i-operate"><a href="#" title="查看">查看</a><a href="#" title="编辑">编辑</a><a href="#" title="删除">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td>icafe</td>
+                        <td>ZT01</td>
+                        <td>北京城市展厅</td>
+                        <td class="title"><a href="#">北京美好城市推广展示大厅</a></td>
+                        <td>北京市</td>
+                        <td>2013-07-02 11:41</td>
+                        <td class="i-operate"><a href="#" title="查看">查看</a><a href="#" title="编辑">编辑</a><a href="#" title="删除">删除</a></td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>-->
+    </div>
+        
+    <!--<div class="right-content pd0x10" style='min-height:800px; height:auto!important; height:800px;'>-->
+	<div class="right-content pd0x10" style='min-height:500px; height:auto!important;'>
+		<!--<h3>测试风云榜——待补充</h3>
+		<h3>版本更新录——待补充</h3>-->
+		
+		<!--<div class="row-fluid" style="width: 25%;float:left;">-->
+		<div class="row-fluid" style="float:left;">
+	<div class="" style="float: left;margin-left: 10%;width:77%;background-color:white;margin-top:18px;border:1px solid #bcbcbc;border-radius:5px;border-top:2px solid rgb(248,148,6);height:220px;">
+		<div class="ribbon">测试风云榜</div>
+		<div class="my_content" style="margin-top:30px;">
+			<ul id="rank" style="list-style: none;margin-left: 10px;">
+				<li>
+					<span style="width: 40px;display: inline-block;"></span>
+					<span style="width: 60px;display: inline-block;"></span>
+					<span style="display: inline-block;width: 68px;text-align: center;">提测任务数</span>
+					<span style="display: inline-block;width: 68px;text-align: center;">发现问题数</span></li>
+				
+				<li id="golden_medal_container" style="height: 35px;">
+					<!--<span style="width: 20px;display: inline-block;height: 35px;background: url('/static/images/golden_medal.png') 0 0 no-repeat;"></span>
+					<span style="margin-right:20px;width: 60px;display: inline-block;vertical-align: top;">yebanghua</span>
+					<span style="display: inline-block;width: 68px;text-align: center;vertical-align: top;">195</span>
+					<span style="display: inline-block;width: 68px;text-align: center;vertical-align: top;">4</span>-->
+					<div id='id_golden_medal_container'></div>
+				</li>
+				
+				<li id="silver_medal_container" style="height: 35px;">
+					<!--<span style="width: 20px;display: inline-block;height: 35px;background: url('/static/images/silver_medal.png') 0 0 no-repeat;"></span>
+					<span style="margin-right:20px;width: 60px;display: inline-block;vertical-align: top;">malisha01</span>
+					<span style="display: inline-block;width: 68px;text-align: center;vertical-align: top;">161</span>
+					<span style="display: inline-block;width: 68px;text-align: center;vertical-align: top;">13</span>-->
+					<div id='id_silver_medal_container'></div>
+				</li>
+				
+				<li id="copper_medal_container" style="height: 35px;">
+					<!--<span style="width: 20px;display: inline-block;height: 35px;background: url('/static/images/copper_medal.png') 0 0 no-repeat;"></span>
+					<span style="margin-right:20px;width: 60px;display: inline-block;vertical-align: top;">zhangchengshuo</span>
+					<span style="display: inline-block;width: 68px;text-align: center;vertical-align: top;">123</span>
+					<span style="display: inline-block;width: 68px;text-align: center;vertical-align: top;">61</span>-->
+					<div id='id_copper_medal_container'></div>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+	<div class="" style="float: left;margin-left: 10%;width:77%;background-color:white;margin-top:18px;border:1px solid #bcbcbc;border-radius:5px;border-top:2px solid rgb(248,148,6);min-height:220px; height:auto!important">
+		<div class="ribbon">版本更新录</div>
+		<div class="my_content" style="margin-top:30px;">
+			<ul id="update_history" style="list-style: none;margin-left: 10px;">
+				
+				<!--<li><span class="update_time" style="color:rgb(248,148,6);float:left;">2014-01-06</span><span style="margin-bottom:5px;margin-left:3%;width:69%;word-break:break-all;float:left;">新首页发布，新增工具集模块</span></li>
+				
+				<li><span class="update_time" style="color:rgb(248,148,6);float:left;">2014-01-03</span><span style="margin-bottom:5px;margin-left:3%;width:69%;word-break:break-all;float:left;">新增本地调试,支持从本地上传程序tar包，运行stream性能测试、search性能测试、batch灌库</span></li>-->
+				<li><span class="update_time" style="color:rgb(248,148,6);float:left;">2014-03-31</span><span style="margin-bottom:5px;margin-left:3%;width:69%;word-break:break-all;float:left;">0.5演示版本,基本框架搭建完成,支持空间索引模块功能、性能测试</span></li>
+				<li><span class="update_time" style="color:rgb(248,148,6);float:left;">2014-04-22</span><span style="margin-bottom:5px;margin-left:3%;width:69%;word-break:break-all;float:left;">1.0版本,所有功能测试模块接入完毕、任务管理支持增删改查启动、测试管理支持实时状态查看、支持实时日志查看、支持功能测试报告查看、支持历史数据查询、支持翻页、支持项目树动态加载、支持用户登录、支持度量中心</span></li>
+				<li><span class="update_time" style="color:rgb(248,148,6);float:left;">2014-04-28</span><span style="margin-bottom:5px;margin-left:3%;width:69%;word-break:break-all;float:left;">2.0版本,HTTP性能测试模块接入完毕、支持前台校验&提示、支持自动发送测试报告、支持工具下载、支持配置文件下载&查看、前台界面优化</span></li>
+				<li><span class="update_time" style="color:rgb(248,148,6);float:left;">2014-05-16</span><span style="margin-bottom:5px;margin-left:3%;width:69%;word-break:break-all;float:left;">2.1版本,支持项目树事件响应、实时测试状态显示优化、度量中心查询时间任意调整、接入个人中心、外部模块接入流程优化、性能测试参数可配置、支持内存监控</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<br style="clear:both"/>
+		
+        <!--<h3>部门已注册系统</h3>
+        <table class="table table-bordered table-condensed">
+            <thead>  
+                <tr>
+                    <th width="40%">名称</th>
+                    <th width="60%">域名</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>monitor业务监控平台</td>
+                    <td>http://monitor.baidu.com:8088/pub/index</td>
+                </tr>
+                <tr>
+                    <td>iCafe</td>
+                    <td>http://icafe.baidu.com:8000/icafe</td>
+                </tr>    
+                <tr>
+                    <td>iCafe+</td>
+                    <td>http://icafe.baidu.com</td>
+                </tr>                        
+            </tbody>
+        </table>
+        
+        <div class="panel-tab mt20">
+            <ul>
+                <li class="active" id="b1" onclick="setTab('b',1,2)">选项卡一</li>
+                <li id="b2" onclick="setTab('b',2,2)">选项卡二</li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="panel-main mt10">
+            <div id="con_b_1" class="hover">
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                    <tr>
+                        <th>系统</th>
+                        <th>域名</th>
+                        <th>接口人</th>
+                        <th>接入系统数</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>icafe</td>
+                        <td>icafe.baidu.com</td>
+                        <td></td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>icafe</td>
+                        <td>icafe.baidu.com</td>
+                        <td></td>
+                        <td>20</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="con_b_2" style="display:none;">内容二</div>
+        </div>
+        
+        <h3 class="mt20">最新公告</h3>
+        <div class="list-title mb20">
+            <ul>
+                <li><i class="icon14 icon14-lidot"></i><a href="#">山西省委附近爆炸案告破 41岁嫌犯被抓</a></li>
+                <li><i class="icon14 icon14-lidot"></i><a href="#">人民日报整版阐释习近平"两个不能否定"</a></li>
+                <li><i class="icon14 icon14-lidot"></i><a href="#">李克强：地方政府改革是一场自我革命</a></li>
+                <li><i class="icon14 icon14-lidot"></i><a href="#">外媒：中国“神秘”无人机曝光引轰动</a></li>
+                <li><i class="icon14 icon14-lidot"></i><a href="#">路透社：北约司令压土耳其弃买中国“红旗”-9</a></li>
+            </ul>
+        </div>-->
+		<p></p>
+		<p></p>
+		<br/>
+    </div>
+</div>
+</div>
+
+<div class="layout-footer">&copy; 2013-2014 Baidu.com 百度 LBS 测试版权所有
+<div style='display:none;'><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fec696ea0a6824dda6a7ab16b041e03ef' type='text/javascript'%3E%3C/script%3E"));
+</script></div>
+</div>
+<script type="text/javascript">
+    function user_info(){
+		username=document.getElementById("id_user_name").innerHTML;
+		$.ajax({
+			type: "post",//使用post方法访问后台
+			dataType: "json",//返回json格式的数据
+			url: "/autotestPlatform/userinfo/",//要访问的后台地址
+			contentType: "application/json; charset=utf-8",
+			cache: false,
+			async: true,
+			data: {username:username,i:"task_instance"},//要发送的数据
+			//start : function(){},
+			//complete :function(){$("#load").hide();},//AJAX请求完成时隐藏loading提示
+			success: function(data){//msg为返回的数据，在这里做数据绑定
+				var employeeNumber=data.employeeNumber;
+				var username=data.username;
+				var name=data.name;
+				var departmentName=data.departmentName;
+				var email=data.email;
+				
+				var t="";
+				t+="<table class='table table-noborder table-condensed'><tr><td width='80px' align='right'>工号：</td> <td width='80%' align='left'>";
+				t+=employeeNumber;
+				t+="</td></tr>  <tr><td align='right'>用户名：</td><td align='left'>";
+				t+=username;
+				t+="</td></tr>  <tr><td align='right'>姓名：</td><td align='left'>";
+				t+=name;
+				t+="</td></tr> <tr><td align='right'>部门：</td><td align='left'>";
+				t+=departmentName;
+				t+="</td></tr>  <tr><td width='80px' align='right'>邮箱：</td> <td width='80%' align='left'>";
+				t+=email;
+				t+="</td></tr> </table>";
+				$.xDialog({
+					title:'个人信息',
+					content:t,
+					ok:function(){
+						//alert("ok");
+					},
+					cancel:function(){
+						//alert("cancel");
+					}
+				});
+			}
+		});
+	}
+</script>
+</body>
+</html>

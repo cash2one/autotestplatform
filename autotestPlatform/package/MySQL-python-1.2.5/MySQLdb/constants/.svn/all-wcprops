@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/app-test/search/lbs-stat/!svn/ver/315/trunk/upps_test/autotestPlatform/package/MySQL-python-1.2.5/MySQLdb/constants
+END
+FLAG.py
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/app-test/search/lbs-stat/!svn/ver/315/trunk/upps_test/autotestPlatform/package/MySQL-python-1.2.5/MySQLdb/constants/FLAG.py
+END
+CLIENT.py
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/app-test/search/lbs-stat/!svn/ver/315/trunk/upps_test/autotestPlatform/package/MySQL-python-1.2.5/MySQLdb/constants/CLIENT.py
+END
+REFRESH.py
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/app-test/search/lbs-stat/!svn/ver/315/trunk/upps_test/autotestPlatform/package/MySQL-python-1.2.5/MySQLdb/constants/REFRESH.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/app-test/search/lbs-stat/!svn/ver/315/trunk/upps_test/autotestPlatform/package/MySQL-python-1.2.5/MySQLdb/constants/__init__.py
+END
+CR.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/app-test/search/lbs-stat/!svn/ver/315/trunk/upps_test/autotestPlatform/package/MySQL-python-1.2.5/MySQLdb/constants/CR.py
+END
+FIELD_TYPE.py
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/app-test/search/lbs-stat/!svn/ver/315/trunk/upps_test/autotestPlatform/package/MySQL-python-1.2.5/MySQLdb/constants/FIELD_TYPE.py
+END
+ER.py
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/app-test/search/lbs-stat/!svn/ver/315/trunk/upps_test/autotestPlatform/package/MySQL-python-1.2.5/MySQLdb/constants/ER.py
+END

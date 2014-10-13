@@ -1,0 +1,16 @@
+
+#golden_medal_container:hover{
+                        cursor: pointer;
+                        background-color: #ffd700;
+                        color: white;
+                    }
+                    #silver_medal_container:hover{
+                        cursor: pointer;
+                        background-color: rgb(211,212,213);
+                        color: white;
+                    }
+                    #copper_medal_container:hover{
+                        cursor: pointer;
+                        background-color: #d98719;
+                        color: white;
+                    }

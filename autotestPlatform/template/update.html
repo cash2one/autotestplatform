@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head name='top'>
+<meta charset="UTF-8">
+<title>服务管理-自测服务平台</title>
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/common.js" type="text/javascript"></script>
+<link rel="StyleSheet" href="/static/js/model/dtree/dtree.css" type="text/css" />
+<script type="text/javascript" src="/static/js/model/dtree/dtree.js"></script>
+<link rel="StyleSheet" href="/static/js/model/xdialog/xDialog.css" type="text/css" />
+<script type="text/javascript" src="/static/js/model/xdialog/xDialog.js"></script>
+<script type="text/javascript" src="/static/js/model/WdatePicker/WdatePicker.js"></script>
+<link href="/static/css/menu.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/static/js/dtreeselect.js"></script>
+<script type="text/javascript" src="/static/js/refresh.js"></script>
+<script type="text/javascript" src="/static/js/AjaxFileUploader/ajaxfileupload.js"></script>
+
+</head>
+<body>
+<!--header-->
+<div class="header">
+    <div class="h_logo"><a href="#" title="自测服务平台"><img src="/static/images/qaup_logo.png" alt=""/></a></div>
+    <div class="h-menu">
+		<ul class="clear">
+    	<li class="first"><a href="/autotestPlatform/">首页</a></li>
+		<li><a href="/autotestPlatform/mainframework/">测试服务</a></li>
+		<li><a href="/update/">升级服务</a></li>
+		<!--<li><a href="#">配置管理</a></li>
+		<li><a href="#">监控中心</a></li>
+		<li><a href="#">账号管理</a></li>-->
+        <li>
+        	<span class="Darrow"></span>
+            <a href="#">工具下载</a>
+        	<dl>
+            	<dt><span class="arrow"></span></dt>
+                <dd><a href="https://github.com/JunneYang/easyBenchmarkTesttool"><img src='/static/images/github.jpg'>&nbsp;&nbsp;HTTP性能测试</a></dd>
+                <dd><a href="https://github.com/JunneYang/redisbenchmarkExtension"><img src='/static/images/github.jpg'>&nbsp;&nbsp;redis自定义接口性能测试</a></dd>
+				<dd><a href="https://github.com/JunneYang/pbrpcBenchmarkTesttool"><img src='/static/images/github.jpg'>&nbsp;&nbsp;PBRPC接口性能测试</a></dd>
+            </dl>
+        </li>
+    </ul>
+		
+    </div>
+    <div class="h-extra"> 
+		<!--
+        <div class="search">
+            <div class="page-search">
+                <input type="text" class="input-noborder" placeholder="看看ELK有什么..." value="" size="30">
+                <input type="button" >
+            </div>
+        </div>
+		-->
+        <div class="btn-dropdown drop-heigth">
+            <!--<a class="btn dropdown-extra"><span class="select-txt">admin</span> <span class="select-open"></span></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+				<li><a href="#">个人中心</a></li>
+                <li><a href="#">退出</a></li>
+            </ul>-->
+			<!--<div class="h_nav"> <span class="hi"><img src="/static/images/head_default.jpg" alt="id"/> 欢迎你！</span><span class="link"><a href="#"><i class="icon16 icon16-setting"></i> 设置</a><a href="#"><i class="icon16 icon16-power"></i> 注销</a></span> </div>-->
+			<!--<span><label id='id_user_name'>{{usrname}}</label>，欢迎您</span>&nbsp;&nbsp;&nbsp;<span class='link'><a href="javascript:alert('系统实现自动登录');" style='color:white'><i class="icon16 icon16-setting"></i>个人中心</a></span>&nbsp;&nbsp;&nbsp;<span class='link' style='color:white'><a href="/autotestPlatform/logout/" style='color:white'><i class="icon16 icon16-power"></i>退出</a></span>&nbsp;&nbsp;&nbsp;<span><a href="/autotestPlatform/family/" style='color:white'><i class="icon16 icon16-home"></i>回到主页</a></span>-->
+			<span><label id='id_user_name'>{{usrname}}</label>，欢迎您</span>&nbsp;&nbsp;&nbsp;<span class='link'><a href="javascript:user_info();" style='color:white;text-decoration: none;'><i class="icon16 icon16-setting"></i>个人中心</a></span>&nbsp;&nbsp;&nbsp;<span class='link' style='color:white'><a href="/logout/" style='color:white;text-decoration: none;'><i class="icon16 icon16-power"></i>退出</a></span>&nbsp;&nbsp;&nbsp;<span><a href="/" style='color:white;text-decoration: none;'><i class="icon16 icon16-home"></i>回到主页</a></span>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<!--content-->
+<div class="layout-content" style="min-height:520px;">
+	<p style="font-size:16px;font-weight:bold">目标节点信息：</p>
+	<div class="panel pd0x10">
+	<p>* 升级节点地址&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<input name='textfield' class='input-large' id='textfield_ip' type='text' size='50' value="10.81.24.133"></p>
+	<p>* 升级节点端口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<input name='textfield' class='input-large' id='textfield_port' type='text' size='50' value="60000"></p><br/>
+	<!-- <p style='text-align:center;'><a class="btn btn-primary btn-xlarge fl" href="//;" style='text-decoration:none'><i class="icon16 icon16-next"></i>下一步</a></p><br/><br/><br/> -->
+	</div>
+	
+	<p style="font-size:16px;font-weight:bold">操作列表：</p>
+	<div class="panel pd0x10"><br/>
+		<div class="panel-tab">
+            <ul style='font-size:14px'>
+                <li class="active" id="b1" onclick="setTab('b',1,6)">PING测试</li>
+                <li id="b2" onclick="setTab('b',2,6)">查看进程PID</li>
+				<li id="b3" onclick="setTab('b',3,6)">查看进程状态</li>
+				<li id="b4" onclick="setTab('b',4,6)">更新插件</li>
+				<li id="b5" onclick="setTab('b',5,6)">更新配置文件</li>
+				<li id="b6" onclick="setTab('b',6,6)">修改日志级别</li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="panel-main mt20">
+            <div id="con_b_1" class="hover">
+				<a class="btn btn-primary btn-small" href="javascript:ping_test();" style='text-decoration:none'>开始测试</a><br/><br/>
+				测试结果:
+				<div class="panel pd0x10">
+					<p id="id_ret_ping_test_loading"></p>
+					<div id="id_ret_ping_test">
+						<br/>
+						<br/>
+						<br/>
+					</div>
+                </div>
+            </div>
+			<div id="con_b_2" class="hover" style="display:none;">
+				<a class="btn btn-primary btn-small" href="javascript:check_pid();" style='text-decoration:none'>查看一下</a><br/><br/>
+				返回结果:
+				<div class="panel pd0x10" >
+					<p id="id_ret_check_pid_test_loading"></p>
+					<div id="id_ret_check_pid_test">
+						<br/>
+						<br/>
+						<br/>
+					</div>
+                </div>
+            </div>
+			<div id="con_b_3" class="hover" style="display:none;">
+				<p>* 进程PID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<input name='textfield' class='input-large' id='textfield_process_status_pid' type='text' size='50' value=""></p>
+				<a class="btn btn-primary btn-small" href="javascript:check_process_status();" style='text-decoration:none'>查看一下</a><br/><br/>
+				返回结果:
+				<div class="panel pd0x10">
+					<p id="id_ret_process_status_test_loading"></p>
+					<div id="id_ret_process_status_test">
+						<br/>
+						<br/>
+						<br/>
+					</div>
+                </div>
+            </div>
+			<div id="con_b_4" class="hover" style="display:none;">
+				<form id="id_file_info" method="post" enctype="multipart/form-data" onsubmit="return upload_plugin();">
+					<p>* 上传插件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<input type="file" class='input-large' size='50' name="uploadfile_plugin" id="id_uploadfile_plugin"/>
+					<input type="submit" class="btn btn-primary btn-small"   value="开始上传"/></p>
+				</form>
+				<p>* 插件名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<input name='textfield' class='input-large' id='textfield_plugin_name' type='text' size='50' value=""></p>
+				<a class="btn btn-primary btn-small" href="javascript:update_plugin();" style='text-decoration:none'>开始更新</a><br/><br/>
+				返回结果:
+				<div class="panel pd0x10">
+					<p id="id_ret_uploadfile_plugin_loading"></p>
+					<div id="id_ret_uploadfile_plugin_status_test">
+						<br/>
+						<br/>
+						<br/>
+					</div>
+                </div>
+            </div>
+			<div id="con_b_5" class="hover" style="display:none;"> 
+				<form id="id_cfg_file_info" method="post" enctype="multipart/form-data" onsubmit="return upload_cfg();">
+					<p>* 上传配置文件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<input type="file" class='input-large' size='50' name="uploadfile_cfg" id="id_uploadfile_cfg"/>
+					<input type="submit" class="btn btn-primary btn-small"   value="开始上传"/></p>
+				</form>
+				
+                <p>* 配置文件类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<select name='select' class='select-large' id='id_select_cfg_type'><option selected='selected'>请选择配置文件类型</option><option>插件配置文件</option><option>框架配置文件</option></select>
+				<p>* 配置文件名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<input name='textfield' class='input-large' id='textfield_cfg_name' type='text' size='50' value=""></p>
+				<a class="btn btn-primary btn-small" href="javascript:update_cfg();" style='text-decoration:none'>开始更新</a><br/><br/>
+				更新结果:
+				<div class="panel pd0x10">
+					<p id="id_ret_uploadfile_cfg_loading"></p>
+                    <div id="id_ret_uploadfile_cfg_status_test">
+						<br/>
+						<br/>
+						<br/>
+					</div>
+                </div>
+            </div>
+			<div id="con_b_6" class="hover" style="display:none;">
+				<p>* 进程PID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<input name='textfield' class='input-large' id='textfield_log_pid' type='text' size='50' value=""></p>
+				<p>* 日志级别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<input name='textfield' class='input-large' id='textfield_log_level' type='text' size='50' value=""></p>
+				<a class="btn btn-primary btn-small" href="javascript:update_log_level();" style='text-decoration:none'>开始修改</a><br/><br/>
+				修改结果:
+				<div class="panel pd0x10">
+                    <p id="id_ret_uploadfile_log_loading"></p>
+                    <div id="id_ret_uploadfile_log_status_test">
+						<br/>
+						<br/>
+						<br/>
+					</div>
+                </div>
+            </div>
+
+        </div>
+	<br/></div>
+    </div>
+	
+	</div>
+
+<div class="layout-footer">&copy; 2014 Baidu.com 百度 LBS 测试版权所有
+<div style='display:none;'><script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fec696ea0a6824dda6a7ab16b041e03ef' type='text/javascript'%3E%3C/script%3E"));
+</script></div></div>
+<script type="text/javascript">
+</script>
+
+</body>
+</html>
