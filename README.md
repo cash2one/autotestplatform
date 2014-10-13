@@ -1,3 +1,3 @@
-autotestplatform
+autotest_platform
 ================
 
