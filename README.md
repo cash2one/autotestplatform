@@ -1,4 +1,4 @@
-autotest_platform
+autotestplatform
 ================
 
 自动化测试平台，让测试服务化。
