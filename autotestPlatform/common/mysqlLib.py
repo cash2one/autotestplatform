@@ -8,7 +8,7 @@ host='XXX'
 user='XXX'
 passwd='XXX'
 db='XXX'
-port=33306
+port=XXX
 
 from dynsqlLib import *
 
